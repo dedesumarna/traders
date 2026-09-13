@@ -769,6 +769,793 @@
     left: -20px;
   }
 }
+/* ============================================================
+   SECTION 2: ABOUT / TRACK RECORD
+   ============================================================ */
+.about {
+  position: relative;
+  padding: 120px 24px;
+  background: #060D18;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Glow Effects */
+.about-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-glow-left {
+  width: 500px;
+  height: 500px;
+  background: rgba(245, 197, 66, 0.08);
+  top: 20%;
+  left: -200px;
+}
+
+.about-glow-right {
+  width: 400px;
+  height: 400px;
+  background: rgba(22, 163, 74, 0.06);
+  bottom: 10%;
+  right: -150px;
+}
+
+/* Container */
+.about-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ============================================================
+   KOLOM KIRI: VISUAL
+   ============================================================ */
+.about-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Foto Wrapper */
+.about-photo-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(245, 197, 66, 0.15),
+    0 0 80px rgba(245, 197, 66, 0.1);
+  filter: contrast(1.05) saturate(0.95);
+}
+
+/* Verified Badge (di atas foto) */
+.photo-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  border-radius: 50px;
+  color: #F5C542;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.photo-badge svg {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+/* Floating Cards di atas Foto */
+.photo-floating-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 4;
+  animation: float-card 3.5s ease-in-out infinite;
+}
+
+.card-trades {
+  top: 40px;
+  right: -30px;
+  animation-delay: 0s;
+}
+
+.card-years {
+  bottom: 60px;
+  left: -30px;
+  animation-delay: 1.75s;
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(245, 197, 66, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B8860B;
+  flex-shrink: 0;
+}
+
+.card-icon-green {
+  background: rgba(22, 163, 74, 0.12);
+  color: #16A34A;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0A1628;
+  line-height: 1;
+}
+
+.card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748B;
+  white-space: nowrap;
+}
+
+/* Equity Curve Mini */
+.about-equity-mini {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.equity-mini-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.equity-mini-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #F1F5F9;
+  letter-spacing: 0.5px;
+}
+
+.equity-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #16A34A;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(22, 163, 74, 0.8);
+  animation: pulse-dot 2s infinite;
+}
+
+.equity-mini-value {
+  font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.equity-mini-value.profit {
+  color: #16A34A;
+}
+
+.equity-mini-chart {
+  height: 60px;
+  width: 100%;
+}
+
+.equity-mini-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   KOLOM KANAN: CONTENT
+   ============================================================ */
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section Tag */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(245, 197, 66, 0.08);
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  border-radius: 100px;
+  color: #F5C542;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.tag-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #F5C542;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(245, 197, 66, 0.8);
+}
+
+/* Judul */
+.about-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.2;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px 0;
+}
+
+.about-gold {
+  color: #F5C542;
+}
+
+/* Body Paragraph */
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.about-body p {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #CBD5E1;
+  margin: 0;
+}
+
+.about-body strong {
+  color: #F5C542;
+  font-weight: 700;
+}
+
+.about-highlight {
+  display: inline-block;
+  color: #16A34A;
+  position: relative;
+  font-weight: 700;
+}
+
+.about-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #16A34A;
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+/* ============================================================
+   HIGHLIGHT POINTS (3 kolom)
+   ============================================================ */
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(245, 197, 66, 0.12);
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 16px 8px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  background: rgba(245, 197, 66, 0.05);
+  transform: translateY(-3px);
+}
+
+.highlight-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(245, 197, 66, 0.1);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F5C542;
+  flex-shrink: 0;
+}
+
+.highlight-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.highlight-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   VERIFIED TRACK RECORD
+   ============================================================ */
+.about-verified {
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(245, 197, 66, 0.05) 0%, rgba(22, 163, 74, 0.03) 100%);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.verified-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.verified-header svg {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+.verified-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #94A3B8;
+  margin: 0 0 18px 0;
+  line-height: 1.6;
+}
+
+.verified-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.verified-link {
+  display: grid;
+  grid-template-columns: 40px 1fr 20px;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.verified-link:hover {
+  background: rgba(245, 197, 66, 0.08);
+  border-color: rgba(245, 197, 66, 0.3);
+  transform: translateX(4px);
+}
+
+.verified-link:hover .verified-arrow {
+  color: #F5C542;
+  transform: translateX(4px);
+}
+
+.verified-link-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(245, 197, 66, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F5C542;
+  flex-shrink: 0;
+}
+
+.verified-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.verified-link-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.verified-link-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #94A3B8;
+  line-height: 1.3;
+}
+
+.verified-arrow {
+  color: #64748B;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CTA SECONDARY
+   ============================================================ */
+.about-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-about {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  border-radius: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+  letter-spacing: 0.3px;
+}
+
+.btn-about svg {
+  flex-shrink: 0;
+}
+
+.btn-about-primary {
+  background: #F5C542;
+  color: #0A1628;
+  border-color: #F5C542;
+  box-shadow: 0 8px 24px rgba(245, 197, 66, 0.25);
+}
+
+.btn-about-primary:hover {
+  background: #FFD966;
+  border-color: #FFD966;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(245, 197, 66, 0.4);
+}
+
+.btn-about-outline {
+  background: transparent;
+  color: #F1F5F9;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-about-outline:hover {
+  background: rgba(245, 197, 66, 0.1);
+  border-color: #F5C542;
+  color: #F5C542;
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   RESPONSIVE ABOUT
+   ============================================================ */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .about {
+    padding: 100px 20px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .about-visual {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .card-trades {
+    right: -15px;
+    top: 30px;
+  }
+
+  .card-years {
+    left: -15px;
+    bottom: 40px;
+  }
+
+  .about-content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .section-tag {
+    align-self: center;
+  }
+
+  .about-highlights {
+    width: 100%;
+  }
+
+  .about-verified {
+    text-align: left;
+    width: 100%;
+  }
+
+  .about-cta {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 640px) {
+  .about {
+    padding: 80px 16px;
+  }
+
+  .about-container {
+    gap: 40px;
+  }
+
+  .about-visual {
+    max-width: 100%;
+  }
+
+  .about-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
+  }
+
+  .photo-badge {
+    top: 14px;
+    left: 14px;
+    font-size: 9px;
+    padding: 6px 12px;
+    letter-spacing: 1px;
+  }
+
+  .photo-floating-card {
+    padding: 10px 14px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .card-trades {
+    right: -8px;
+    top: 20px;
+  }
+
+  .card-years {
+    left: -8px;
+    bottom: 30px;
+  }
+
+  .card-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .card-value {
+    font-size: 14px;
+  }
+
+  .card-label {
+    font-size: 9px;
+  }
+
+  .about-equity-mini {
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+
+  .equity-mini-chart {
+    height: 50px;
+  }
+
+  .about-title {
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 22px;
+  }
+
+  .about-body p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .highlight-item {
+    flex-direction: row;
+    text-align: left;
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .highlight-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .highlight-value {
+    font-size: 17px;
+  }
+
+  .highlight-label {
+    font-size: 12px;
+  }
+
+  .about-verified {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .verified-header {
+    font-size: 14px;
+  }
+
+  .verified-desc {
+    font-size: 12px;
+  }
+
+  .verified-link {
+    grid-template-columns: 36px 1fr 18px;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .verified-link-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .verified-link-name {
+    font-size: 13px;
+  }
+
+  .verified-link-desc {
+    font-size: 11px;
+  }
+
+  .btn-about {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 22px;
+    font-size: 13px;
+  }
+
+  .about-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Extra Small */
+@media screen and (max-width: 380px) {
+  .about-title {
+    font-size: 21px;
+  }
+
+  .about-body p {
+    font-size: 14px;
+  }
+
+  .highlight-value {
+    font-size: 15px;
+  }
+
+  .photo-floating-card {
+    padding: 8px 12px;
+  }
+
+  .card-value {
+    font-size: 13px;
+  }
+}
 </style>
 </head>
 <body>
@@ -975,6 +1762,244 @@
     <span class="scroll-line"></span>
   </a>
 </section>
+<!-- ============================================================
+     SECTION 2: ABOUT / TRACK RECORD
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="about-container">
+    
+    <!-- ---------- KOLOM KIRI: VISUAL ---------- -->
+    <div class="about-visual">
+      <!-- Foto Profesional -->
+      <div class="about-photo-wrapper">
+        <img 
+          src="https://img.freepik.com/free-photo/confident-businessman-posing-office_23-2148094528.jpg" 
+          alt="Trader XAUUSD & Forex Profesional" 
+          class="about-photo"
+          loading="lazy"
+        />
+        
+        <!-- Verified Badge di atas foto -->
+        <div class="photo-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+          <span>VERIFIED TRADER</span>
+        </div>
+
+        <!-- Floating Card 1: Total Trades -->
+        <div class="photo-floating-card card-trades">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 4 4 5-5"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <span class="card-value">1,247</span>
+            <span class="card-label">Total Trades</span>
+          </div>
+        </div>
+
+        <!-- Floating Card 2: Years -->
+        <div class="photo-floating-card card-years">
+          <div class="card-icon card-icon-green">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <span class="card-value">3+</span>
+            <span class="card-label">Tahun Trading</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equity Curve Mini (bawah foto) -->
+      <div class="about-equity-mini">
+        <div class="equity-mini-header">
+          <div class="equity-mini-title">
+            <span class="equity-dot"></span>
+            <span>Equity Curve</span>
+          </div>
+          <span class="equity-mini-value profit">+320%</span>
+        </div>
+        <div class="equity-mini-chart">
+          <svg viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="equityGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#16A34A" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#16A34A" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Area fill -->
+            <path d="M 0 70 L 30 65 L 60 55 L 90 50 L 120 40 L 150 45 L 180 30 L 210 25 L 240 20 L 270 15 L 300 10 L 300 80 L 0 80 Z" 
+                  fill="url(#equityGradient)"/>
+            <!-- Line -->
+            <path d="M 0 70 L 30 65 L 60 55 L 90 50 L 120 40 L 150 45 L 180 30 L 210 25 L 240 20 L 270 15 L 300 10" 
+                  fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- KOLOM KANAN: CONTENT ---------- -->
+    <div class="about-content">
+      <!-- Section Tag -->
+      <span class="section-tag">
+        <span class="tag-dot"></span>
+        TENTANG SAYA
+      </span>
+
+      <!-- Headline -->
+      <h2 class="about-title">
+        Bukan Sekadar Analis.<br>
+        <span class="about-gold">Saya Trader yang Sama Seperti Anda.</span>
+      </h2>
+
+      <!-- Body Paragraph -->
+      <div class="about-body">
+        <p>
+          Nama saya <strong>[Nama Anda]</strong>. Sejak <strong>[Tahun]</strong> saya fokus trading 
+          <strong>XAUUSD (Gold)</strong> dan <strong>major pairs Forex</strong>. Saya tidak hanya publish 
+          signal — saya <strong>copy signal saya sendiri</strong> di akun real, live, tanpa hiding.
+        </p>
+        <p>
+          Kalau signal saya loss, saya loss. Kalau profit, saya profit. 
+          <strong class="about-highlight">Skin in the game, setiap saat.</strong>
+        </p>
+      </div>
+
+      <!-- Highlight Points (3 kolom) -->
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 4 4 5-5"/>
+            </svg>
+          </div>
+          <div class="highlight-text">
+            <span class="highlight-value">3+ Tahun</span>
+            <span class="highlight-label">Trading XAUUSD & Forex</span>
+          </div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="highlight-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <div class="highlight-text">
+            <span class="highlight-value">1,200+</span>
+            <span class="highlight-label">Signal Published & Tracked</span>
+          </div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="highlight-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="highlight-text">
+            <span class="highlight-value">500+</span>
+            <span class="highlight-label">Members Trader Family</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Track Record -->
+      <div class="about-verified">
+        <div class="verified-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+          <span>Verified Track Record</span>
+        </div>
+        <p class="verified-desc">Semua performa bisa diverifikasi secara publik dan real-time di:</p>
+
+        <div class="verified-links">
+          <a href="https://www.myfxbook.com/members/[username]" target="_blank" rel="noopener" class="verified-link">
+            <div class="verified-link-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M3 3v18h18"/>
+                <path d="M7 14l4-4 4 4 5-5"/>
+              </svg>
+            </div>
+            <div class="verified-link-text">
+              <span class="verified-link-name">MyFxBook</span>
+              <span class="verified-link-desc">Full Track Record</span>
+            </div>
+            <svg class="verified-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+
+          <a href="https://www.fxblue.com/users/[username]" target="_blank" rel="noopener" class="verified-link">
+            <div class="verified-link-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="12" y1="20" x2="12" y2="10"/>
+                <line x1="18" y1="20" x2="18" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="16"/>
+              </svg>
+            </div>
+            <div class="verified-link-text">
+              <span class="verified-link-name">FXBlue</span>
+              <span class="verified-link-desc">Live Statement</span>
+            </div>
+            <svg class="verified-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+
+          <a href="https://t.me/[channel]" target="_blank" rel="noopener" class="verified-link">
+            <div class="verified-link-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.96 1.25-5.54 3.66-.52.36-.99.53-1.41.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.36-.48.99-.74 3.86-1.68 6.43-2.79 7.72-3.32 3.68-1.53 4.44-1.8 4.94-1.8.11 0 .36.03.52.19.14.13.18.32.16.5z"/>
+              </svg>
+            </div>
+            <div class="verified-link-text">
+              <span class="verified-link-name">Telegram Channel</span>
+              <span class="verified-link-desc">Live Signal Updates</span>
+            </div>
+            <svg class="verified-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA Secondary -->
+      <div class="about-cta">
+        <a href="#contact" class="btn-about btn-about-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Konsultasi Gratis
+        </a>
+        <a href="#signal" class="btn-about btn-about-outline">
+          Join Trader Family
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Glow -->
+  <div class="about-glow about-glow-left"></div>
+  <div class="about-glow about-glow-right"></div>
+</section>
 </body>
 <script>
 // ============================================================
@@ -1080,6 +2105,110 @@
   }
 
   console.log('Hero Section loaded.');
+})();
+// ============================================================
+// ABOUT SECTION - INTERACTIVE
+// ============================================================
+(function() {
+  'use strict';
+
+  // 1. Fade-in animation saat scroll ke section About
+  var aboutSection = document.querySelector('.about');
+  var aboutVisual = document.querySelector('.about-visual');
+  var aboutContent = document.querySelector('.about-content');
+
+  if (aboutSection && aboutVisual && aboutContent) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          aboutVisual.style.opacity = '1';
+          aboutVisual.style.transform = 'translateX(0)';
+
+          setTimeout(function() {
+            aboutContent.style.opacity = '1';
+            aboutContent.style.transform = 'translateX(0)';
+          }, 200);
+
+          observer.unobserve(aboutSection);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Set initial state
+    aboutVisual.style.opacity = '0';
+    aboutVisual.style.transform = 'translateX(-40px)';
+    aboutVisual.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+    aboutContent.style.opacity = '0';
+    aboutContent.style.transform = 'translateX(40px)';
+    aboutContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+    observer.observe(aboutSection);
+  }
+
+  // 2. Parallax subtle pada floating cards
+  var cards = document.querySelectorAll('.photo-floating-card');
+  
+  window.addEventListener('scroll', function() {
+    if (!aboutSection) return;
+    
+    var rect = aboutSection.getBoundingClientRect();
+    var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isVisible) {
+      var scrollProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      var translateY = (scrollProgress - 0.5) * 30;
+      
+      cards.forEach(function(card, index) {
+        var direction = index % 2 === 0 ? 1 : -1;
+        card.style.transform = 'translateY(' + (translateY * direction) + 'px)';
+      });
+    }
+  });
+
+  // 3. Animated counter (untuk highlight values jika ingin dinamis)
+  var highlightValues = document.querySelectorAll('.highlight-value');
+  
+  function animateValue(element, start, end, duration, suffix) {
+    var range = end - start;
+    var current = start;
+    var increment = end > start ? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    
+    var timer = setInterval(function() {
+      current += increment;
+      element.textContent = current + (suffix || '');
+      
+      if (current === end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
+
+  // Opsional: Trigger counter saat section terlihat
+  if (aboutSection && 'IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          // Counter sudah hardcode, tidak perlu animasi
+          // Kalau mau animasi, uncomment kode di bawah:
+          /*
+          setTimeout(function() {
+            animateValue(document.querySelector('.highlight-value'), 0, 3, 1500, '+ Tahun');
+          }, 500);
+          */
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counterObserver.observe(aboutSection);
+  }
+
+  console.log('About Section loaded.');
 })();
 </script>
 </html>
